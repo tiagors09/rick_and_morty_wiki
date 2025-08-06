@@ -21,7 +21,7 @@ class LocationService implements Service<Location> {
   }
 
   @override
-  Future<List<Location>> getMultiple() {
+  Future<List<Location>> getMultiple(String ids) {
     // TODO: implement getMultiple
     throw UnimplementedError();
   }

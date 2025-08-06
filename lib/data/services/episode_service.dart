@@ -21,7 +21,7 @@ class EpisodeService implements Service<Episode> {
   }
 
   @override
-  Future<List<Episode>> getMultiple() {
+  Future<List<Episode>> getMultiple(String ids) {
     // TODO: implement getMultiple
     throw UnimplementedError();
   }
