@@ -3,15 +3,16 @@ import 'package:rick_and_morty_wiki/domain/models/charater.dart';
 
 class CharacterGridItem extends StatelessWidget {
   final Character c;
+  final void Function(BuildContext, Character) onTap;
 
-  const CharacterGridItem({super.key, required this.c});
+  const CharacterGridItem({super.key, required this.c, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GestureDetector(
-        onTap: null,
+        onTap: () => onTap(context, c),
         child: GridTile(
           footer: GridTileBar(
             title: Text(c.name),

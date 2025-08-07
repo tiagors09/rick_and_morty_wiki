@@ -5,11 +5,13 @@ import 'package:rick_and_morty_wiki/ui/widgets/character_grid_item.dart';
 class CharacterGrid extends StatelessWidget {
   final List<Character> characters;
   final ScrollController scrollController;
+  final void Function(BuildContext, Character) onViewChar;
 
   const CharacterGrid({
     super.key,
     required this.characters,
     required this.scrollController,
+    required this.onViewChar,
   });
 
   @override
@@ -27,6 +29,7 @@ class CharacterGrid extends StatelessWidget {
       ),
       itemBuilder: (ctx, i) => CharacterGridItem(
         c: characters[i],
+        onTap: onViewChar,
       ),
     );
   }

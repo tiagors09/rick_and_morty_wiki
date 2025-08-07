@@ -56,6 +56,7 @@ class _CharactersViewState extends State<CharactersView> {
               child: CharacterGrid(
                 characters: viewModel.characters,
                 scrollController: viewModel.scrollController,
+                onViewChar: viewModel.onViewCharacter,
               ),
             ),
     );
