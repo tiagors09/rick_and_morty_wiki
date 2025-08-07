@@ -11,6 +11,9 @@ class CharactersFilterTextField extends StatelessWidget
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: TextField(
+        decoration: InputDecoration(
+          label: Text('Type a name of character what you want to find'),
+        ),
         onChanged: onChange,
       ),
     );
