@@ -9,15 +9,16 @@ import 'package:http/http.dart' as http;
 
 class GetAllCharactersService implements Service<List<Character>> {
   final CharacterFilters? filters;
+  final int page;
 
-  GetAllCharactersService({this.filters});
+  GetAllCharactersService({this.filters, this.page = 1});
 
   @override
   Future<List<Character>> execute() async {
     try {
       final response = await http.get(
         Uri.parse(
-          '${Environment.baseURL}/character/?',
+          '${Environment.baseURL}/character/?page=$page',
         ),
       );
 
