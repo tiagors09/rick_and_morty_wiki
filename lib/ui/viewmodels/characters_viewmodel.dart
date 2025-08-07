@@ -86,4 +86,11 @@ class CharactersViewmodel extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
+
+  void onViewCharacter(BuildContext ctx, Character c) {
+    Navigator.of(ctx).pushNamed(
+      '/character',
+      arguments: c,
+    );
+  }
 }
