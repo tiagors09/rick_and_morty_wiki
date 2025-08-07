@@ -18,7 +18,7 @@ class GetAllCharactersService implements Service<List<Character>> {
     try {
       final response = await http.get(
         Uri.parse(
-          '${Environment.baseURL}/character/?page=$page',
+          '${Environment.baseURL}/character/?page=$page&name=${filters?.name ?? ''}',
         ),
       );
 
