@@ -24,7 +24,7 @@ class GetAllCharactersService implements Service<List<Character>> {
 
       return characters;
     } catch (_) {
-      throw ApiException('Falha ao obter personagem');
+      throw ApiException('Falha ao obter personagens');
     }
   }
 }
