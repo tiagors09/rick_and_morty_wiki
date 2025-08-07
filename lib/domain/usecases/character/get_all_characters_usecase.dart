@@ -1,8 +1,20 @@
+import 'package:rick_and_morty_wiki/data/repositories/repository.dart';
+import 'package:rick_and_morty_wiki/domain/models/charater.dart';
 import 'package:rick_and_morty_wiki/domain/usecases/usecase.dart';
 
-class GetAllCharactersUsecase implements Usecase {
+class GetAllCharactersUsecase implements Usecase<List<Character>> {
+  final Repository<List<Character>> repository;
+
+  GetAllCharactersUsecase({required this.repository});
+
   @override
-  void execute() {
-    // TODO: implement execute
+  Future<List<Character>> execute() async {
+    try {
+      final result = repository.execute();
+
+      return result;
+    } catch (e) {
+      rethrow;
+    }
   }
 }
