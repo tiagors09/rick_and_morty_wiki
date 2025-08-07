@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_wiki/ui/viewmodels/characters_viewmodel.dart';
 import 'package:rick_and_morty_wiki/ui/widgets/character_filter_text_field.dart';
-import 'package:rick_and_morty_wiki/ui/widgets/character_list.dart';
+import 'package:rick_and_morty_wiki/ui/widgets/character_grid.dart';
 
 class CharactersView extends StatefulWidget {
   const CharactersView({super.key});
@@ -20,11 +20,15 @@ class _CharactersViewState extends State<CharactersView> {
     viewModel.addListener(() {
       setState(() {});
     });
+    viewModel.scrollController.addListener(() {
+      viewModel.maybeLoadMoreCharacters();
+    });
   }
 
   @override
   void dispose() {
     viewModel.removeListener(() {});
+    viewModel.scrollController.dispose();
     super.dispose();
   }
 
@@ -49,8 +53,9 @@ class _CharactersViewState extends State<CharactersView> {
             )
           : RefreshIndicator(
               onRefresh: () => viewModel.fetchAllCharacters(),
-              child: CharacterList(
+              child: CharacterGrid(
                 characters: viewModel.characters,
+                scrollController: viewModel.scrollController,
               ),
             ),
     );
