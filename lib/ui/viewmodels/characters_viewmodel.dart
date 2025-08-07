@@ -9,6 +9,7 @@ class CharactersViewmodel extends ChangeNotifier {
   List<Character> characters = [];
   bool isLoading = false;
   String? errorMessage;
+  ScrollController scrollController = ScrollController();
 
   Future<void> fetchAllCharacters() async {
     isLoading = true;
@@ -50,4 +51,13 @@ class CharactersViewmodel extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
+
+  void maybeLoadMoreCharacters() {
+    if (scrollController.position.pixels >=
+        scrollController.position.maxScrollExtent) {
+      loadMoreCharacters();
+    }
+  }
+
+  void loadMoreCharacters() {}
 }
