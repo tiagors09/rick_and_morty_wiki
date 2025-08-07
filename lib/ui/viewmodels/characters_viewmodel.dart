@@ -10,6 +10,7 @@ class CharactersViewmodel extends ChangeNotifier {
   bool isLoading = false;
   String? errorMessage;
   ScrollController scrollController = ScrollController();
+  int currentPage = 1;
 
   Future<void> fetchAllCharacters() async {
     isLoading = true;
@@ -53,11 +54,36 @@ class CharactersViewmodel extends ChangeNotifier {
   }
 
   void maybeLoadMoreCharacters() {
-    if (scrollController.position.pixels >=
-        scrollController.position.maxScrollExtent) {
+    if (!isLoading &&
+        scrollController.position.pixels >=
+            scrollController.position.maxScrollExtent) {
       loadMoreCharacters();
     }
   }
 
-  void loadMoreCharacters() {}
+  Future<void> loadMoreCharacters() async {
+    isLoading = true;
+    errorMessage = null;
+    notifyListeners();
+
+    try {
+      currentPage++;
+
+      final newCharacters = await GetAllCharactersRepository(
+        service: GetAllCharactersService(
+          page: currentPage,
+        ),
+      ).execute();
+
+      characters.addAll(newCharacters);
+
+      notifyListeners();
+    } catch (e) {
+      currentPage--;
+      errorMessage = e is ApiException ? e.message : 'Erro inesperado';
+    }
+
+    isLoading = false;
+    notifyListeners();
+  }
 }
