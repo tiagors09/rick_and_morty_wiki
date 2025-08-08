@@ -20,10 +20,9 @@ class EpisodeGridItem extends StatelessWidget {
           ),
           child: Hero(
             tag: e.id,
-            child: FadeInImage.assetNetwork(
+            child: Image.asset(
+              'assets/images/placeholder.jpeg',
               fit: BoxFit.cover,
-              placeholder: 'assets/images/placeholder.jpeg',
-              image: 'assets/images/placeholder.jpeg',
             ),
           ),
         ),
