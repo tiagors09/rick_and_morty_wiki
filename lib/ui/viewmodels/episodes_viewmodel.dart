@@ -3,7 +3,7 @@ import 'package:rick_and_morty_wiki/data/repositories/episodes/get_all_episodes_
 import 'package:rick_and_morty_wiki/data/services/episodes/get_all_episodes_service.dart';
 import 'package:rick_and_morty_wiki/domain/models/episode.dart';
 import 'package:rick_and_morty_wiki/exceptions/api_exception.dart';
-import 'package:rick_and_morty_wiki/utils/filters/episode_filters.dart';
+import 'package:rick_and_morty_wiki/data/services/episodes/episode_filters.dart';
 
 class EpisodesViewmodel extends ChangeNotifier {
   List<Episode> episodes = [];
@@ -73,7 +73,9 @@ class EpisodesViewmodel extends ChangeNotifier {
       currentPage++;
 
       final newEpisodes = await GetAllEpisodesRepository(
-        service: GetAllEpisodesService(),
+        service: GetAllEpisodesService(
+          page: currentPage,
+        ),
       ).execute();
 
       episodes.addAll(newEpisodes);
