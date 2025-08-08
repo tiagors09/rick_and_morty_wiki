@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_wiki/domain/models/charater.dart';
 import 'package:rick_and_morty_wiki/domain/models/episode.dart';
 
 class EpisodeGridItem extends StatelessWidget {
