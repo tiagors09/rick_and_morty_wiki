@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_wiki/ui/viewmodels/characters_viewmodel.dart';
-import 'package:rick_and_morty_wiki/ui/widgets/filter_text_field.dart';
 import 'package:rick_and_morty_wiki/ui/widgets/character_grid.dart';
+import 'package:rick_and_morty_wiki/ui/widgets/filter_text_field.dart';
 
 class CharactersView extends StatefulWidget {
   const CharactersView({super.key});
@@ -29,6 +29,7 @@ class _CharactersViewState extends State<CharactersView> {
   void dispose() {
     viewModel.removeListener(() {});
     viewModel.scrollController.dispose();
+    viewModel.dispose();
     super.dispose();
   }
 
@@ -39,6 +40,7 @@ class _CharactersViewState extends State<CharactersView> {
         title: Text('Characters'),
         bottom: FilterTextField(
           onChange: viewModel.onFilterChange,
+          label: 'Type a name of character what you want to find',
         ),
       ),
       body: viewModel.isLoading
