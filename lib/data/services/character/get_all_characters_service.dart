@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:rick_and_morty_wiki/data/services/service.dart';
 import 'package:rick_and_morty_wiki/domain/models/charater.dart';
 import 'package:rick_and_morty_wiki/exceptions/api_exception.dart';
-import 'package:rick_and_morty_wiki/utils/character_filters.dart';
+import 'package:rick_and_morty_wiki/utils/filters/character_filters.dart';
 import 'package:rick_and_morty_wiki/utils/environment.dart';
 import 'package:http/http.dart' as http;
 
