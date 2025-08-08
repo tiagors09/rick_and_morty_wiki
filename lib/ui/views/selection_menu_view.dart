@@ -18,24 +18,26 @@ class _SelectionMenuViewState extends State<SelectionMenuView> {
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        child: Row(
-          children: [
-            MenuOption(
-              cover: 'assets/images/characters.jpg',
-              title: 'Characters',
-              onTap: () => viewModel.openView(context, '/characters'),
-            ),
-            MenuOption(
-              cover: 'assets/images/locations.jpg',
-              title: 'Locations',
-              onTap: () => viewModel.openView(context, '/locations'),
-            ),
-            MenuOption(
-              cover: 'assets/images/episodes.jpg',
-              title: 'Episodes',
-              onTap: () => viewModel.openView(context, '/episodes'),
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              MenuOption(
+                cover: 'assets/images/characters.jpg',
+                title: 'Characters',
+                onTap: () => viewModel.openView(context, '/characters'),
+              ),
+              MenuOption(
+                cover: 'assets/images/locations.jpg',
+                title: 'Locations',
+                onTap: () => viewModel.openView(context, '/locations'),
+              ),
+              MenuOption(
+                cover: 'assets/images/episodes.jpg',
+                title: 'Episodes',
+                onTap: () => viewModel.openView(context, '/episodes'),
+              ),
+            ],
+          ),
         ),
       ),
     );

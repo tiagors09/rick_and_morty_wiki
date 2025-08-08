@@ -19,8 +19,9 @@ class MenuOption extends StatelessWidget {
       child: Stack(
         children: [
           SizedBox(
-            width: MediaQuery.of(context).size.width / 3,
             child: Image.asset(
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height / 3,
               cover,
               fit: BoxFit.cover,
             ),
