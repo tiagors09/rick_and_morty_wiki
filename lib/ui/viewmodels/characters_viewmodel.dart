@@ -3,7 +3,7 @@ import 'package:rick_and_morty_wiki/data/repositories/character.dart/get_all_cha
 import 'package:rick_and_morty_wiki/data/services/character/get_all_characters_service.dart';
 import 'package:rick_and_morty_wiki/domain/models/charater.dart';
 import 'package:rick_and_morty_wiki/exceptions/api_exception.dart';
-import 'package:rick_and_morty_wiki/utils/filters/character_filters.dart';
+import 'package:rick_and_morty_wiki/data/services/character/character_filters.dart';
 
 class CharactersViewmodel extends ChangeNotifier {
   List<Character> characters = [];
