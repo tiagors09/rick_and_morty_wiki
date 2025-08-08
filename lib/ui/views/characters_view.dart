@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_wiki/ui/viewmodels/characters_viewmodel.dart';
-import 'package:rick_and_morty_wiki/ui/widgets/character_filter_text_field.dart';
+import 'package:rick_and_morty_wiki/ui/widgets/filter_text_field.dart';
 import 'package:rick_and_morty_wiki/ui/widgets/character_grid.dart';
 
 class CharactersView extends StatefulWidget {
@@ -37,7 +37,7 @@ class _CharactersViewState extends State<CharactersView> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Characters'),
-        bottom: CharactersFilterTextField(
+        bottom: FilterTextField(
           onChange: viewModel.onFilterChange,
         ),
       ),

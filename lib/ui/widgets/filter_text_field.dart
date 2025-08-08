@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CharactersFilterTextField extends StatelessWidget
-    implements PreferredSizeWidget {
+class FilterTextField extends StatelessWidget implements PreferredSizeWidget {
   final void Function(String)? onChange;
 
-  const CharactersFilterTextField({super.key, this.onChange});
+  const FilterTextField({super.key, this.onChange});
 
   @override
   Widget build(BuildContext context) {
