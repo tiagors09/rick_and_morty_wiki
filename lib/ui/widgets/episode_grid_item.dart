@@ -15,7 +15,7 @@ class EpisodeGridItem extends StatelessWidget {
         onTap: () => onTap(context, e),
         child: GridTile(
           footer: GridTileBar(
-            title: Text(e.episode),
+            title: Text('${e.episode} ${e.name}'),
             backgroundColor: Colors.black87,
           ),
           child: Hero(
