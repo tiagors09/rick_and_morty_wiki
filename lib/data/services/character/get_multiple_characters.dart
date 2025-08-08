@@ -21,9 +21,10 @@ class GetMultipleCharacters implements Service<List<Character>> {
       );
 
       Map<String, dynamic> data = jsonDecode(response.body);
+      List<dynamic> results = data['results'];
 
-      List<Character> characters = data.values
-          .map((char) => Character.fromJson(char))
+      List<Character> characters = results
+          .map((char) => Character.fromJson(char as Map<String, dynamic>))
           .toList();
 
       return characters;
