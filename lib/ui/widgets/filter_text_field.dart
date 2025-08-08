@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class FilterTextField extends StatelessWidget implements PreferredSizeWidget {
   final void Function(String)? onChange;
+  final String? label;
 
-  const FilterTextField({super.key, this.onChange});
+  const FilterTextField({super.key, this.onChange, this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class FilterTextField extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: TextField(
         decoration: InputDecoration(
-          label: Text('Type a name of character what you want to find'),
+          label: Text(label ?? ''),
         ),
         onChanged: onChange,
       ),
