@@ -8,8 +8,13 @@ class GetMultipleEpisodesRepository implements Repository<List<Episode>> {
   GetMultipleEpisodesRepository({required this.service});
 
   @override
-  Future<List<Episode>> execute() {
-    // TODO: implement execute
-    throw UnimplementedError();
+  Future<List<Episode>> execute() async {
+    try {
+      final result = await service.execute();
+
+      return result;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

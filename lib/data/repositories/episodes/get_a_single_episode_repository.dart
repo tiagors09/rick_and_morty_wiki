@@ -8,8 +8,13 @@ class GetASingleEpisodeRepository implements Repository<Episode> {
   GetASingleEpisodeRepository({required this.service});
 
   @override
-  Future<Episode> execute() {
-    // TODO: implement execute
-    throw UnimplementedError();
+  Future<Episode> execute() async {
+    try {
+      final result = await service.execute();
+
+      return result;
+    } catch (e) {
+      rethrow;
+    }
   }
 }
