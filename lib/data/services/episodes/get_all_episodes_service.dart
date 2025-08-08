@@ -4,7 +4,7 @@ import 'package:rick_and_morty_wiki/data/services/service.dart';
 import 'package:rick_and_morty_wiki/domain/models/episode.dart';
 import 'package:rick_and_morty_wiki/exceptions/api_exception.dart';
 import 'package:rick_and_morty_wiki/utils/environment.dart';
-import 'package:rick_and_morty_wiki/utils/filters/episode_filters.dart';
+import 'package:rick_and_morty_wiki/data/services/episodes/episode_filters.dart';
 import 'package:http/http.dart' as http;
 
 class GetAllEpisodesService implements Service<List<Episode>> {
@@ -21,7 +21,7 @@ class GetAllEpisodesService implements Service<List<Episode>> {
     try {
       final response = await http.get(
         Uri.parse(
-          '${Environment.baseURL}/episode/?name=${filters?.name ?? ''}',
+          '${Environment.baseURL}/episode/?page=$page&name=${filters?.name ?? ''}',
         ),
       );
 
