@@ -1,16 +1,37 @@
-# rick_and_morty_wiki
+# Rick and Morty Wiki 📱🛸
 
-A new Flutter project.
+Este é um aplicativo Flutter que funciona como uma Wiki da série **Rick and Morty**, utilizando a [Rick and Morty API](https://rickandmortyapi.com/) para exibir informações sobre personagens, episódios e locais.
 
-## Getting Started
+## ✨ Funcionalidades
 
-This project is a starting point for a Flutter application.
+- Lista de personagens com imagens e detalhes
+- Busca por nome de personagem
+- Detalhes de episódios e locais (opcional)
+- Interface amigável e responsiva
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Tecnologias Utilizadas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [Flutter](https://flutter.dev/)
+- [Dart](https://dart.dev/)
+- [Rick and Morty API](https://rickandmortyapi.com/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔧 Como Rodar o Projeto
+
+1. Clone o repositório:
+
+  ```bash
+  git clone git@github.com:tiagors09/rick_and_morty_wiki.git
+  cd rick_and_morty_wiki
+  ````
+
+2. Instale as dependências:
+
+  ```bash
+  flutter pub get
+  ```
+
+3. Execute o app:
+
+  ```bash
+  flutter run
+  ```
