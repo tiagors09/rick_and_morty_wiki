@@ -21,7 +21,7 @@ class GetAllEpisodesService implements Service<List<Episode>> {
     try {
       final response = await http.get(
         Uri.parse(
-          '${Environment.baseURL}/episode/?',
+          '${Environment.baseURL}/episode/?name=${filters?.name ?? ''}',
         ),
       );
 
