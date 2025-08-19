@@ -84,6 +84,7 @@ class CharactersViewmodel extends ChangeNotifier {
     }
 
     isLoading = false;
+
     notifyListeners();
   }
 
