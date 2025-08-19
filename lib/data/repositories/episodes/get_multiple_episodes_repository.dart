@@ -1,3 +1,4 @@
+import 'package:http/http.dart';
 import 'package:rick_and_morty_wiki/data/repositories/repository.dart';
 import 'package:rick_and_morty_wiki/data/services/service.dart';
 import 'package:rick_and_morty_wiki/domain/models/episode.dart';
@@ -10,7 +11,7 @@ class GetMultipleEpisodesRepository implements Repository<List<Episode>> {
   @override
   Future<List<Episode>> execute() async {
     try {
-      final result = await service.execute();
+      final result = await service.execute(Client());
 
       return result;
     } catch (e) {

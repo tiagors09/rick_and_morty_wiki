@@ -1,3 +1,4 @@
+import 'package:http/http.dart';
 import 'package:rick_and_morty_wiki/data/repositories/repository.dart';
 import 'package:rick_and_morty_wiki/data/services/service.dart';
 import 'package:rick_and_morty_wiki/domain/models/charater.dart';
@@ -12,7 +13,7 @@ class GetAllCharactersRepository implements Repository<List<Character>> {
   @override
   Future<List<Character>> execute() async {
     try {
-      final result = await service.execute();
+      final result = await service.execute(Client());
 
       return result;
     } catch (e) {
