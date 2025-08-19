@@ -17,9 +17,9 @@ class GetAllEpisodesService implements Service<List<Episode>> {
   });
 
   @override
-  Future<List<Episode>> execute() async {
+  Future<List<Episode>> execute(http.Client client) async {
     try {
-      final response = await http.get(
+      final response = await client.get(
         Uri.parse(
           '${Environment.baseURL}/episode/?page=$page&name=${filters?.name ?? ''}',
         ),

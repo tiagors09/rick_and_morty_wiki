@@ -17,9 +17,9 @@ class GetAllLocationsService implements Service<List<Location>> {
   });
 
   @override
-  Future<List<Location>> execute() async {
+  Future<List<Location>> execute(http.Client client) async {
     try {
-      final response = await http.get(
+      final response = await client.get(
         Uri.parse(
           '${Environment.baseURL}/location/?page=$page&name=${filters?.name ?? ''}',
         ),

@@ -12,9 +12,9 @@ class GetMultipleCharacters implements Service<List<Character>> {
   GetMultipleCharacters({required this.ids});
 
   @override
-  Future<List<Character>> execute() async {
+  Future<List<Character>> execute(http.Client client) async {
     try {
-      final response = await http.get(
+      final response = await client.get(
         Uri.parse(
           '${Environment.baseURL}/character/$ids',
         ),

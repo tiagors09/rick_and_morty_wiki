@@ -12,9 +12,9 @@ class GetASingleCharacterService implements Service<Character> {
   GetASingleCharacterService({required this.id});
 
   @override
-  Future<Character> execute() async {
+  Future<Character> execute(http.Client client) async {
     try {
-      final response = await http.get(
+      final response = await client.get(
         Uri.parse(
           '${Environment.baseURL}/character/$id',
         ),
@@ -24,7 +24,7 @@ class GetASingleCharacterService implements Service<Character> {
       final character = Character.fromJson(data);
 
       return character;
-    } catch (_) {
+    } catch (e) {
       throw ApiException('Falha ao obter personagem');
     }
   }

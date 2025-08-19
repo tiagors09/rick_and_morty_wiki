@@ -14,9 +14,9 @@ class GetAllCharactersService implements Service<List<Character>> {
   GetAllCharactersService({this.filters, this.page = 1});
 
   @override
-  Future<List<Character>> execute() async {
+  Future<List<Character>> execute(http.Client client) async {
     try {
-      final response = await http.get(
+      final response = await client.get(
         Uri.parse(
           '${Environment.baseURL}/character/?page=$page&name=${filters?.name ?? ''}',
         ),
